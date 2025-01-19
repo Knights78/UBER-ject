@@ -1,7 +1,9 @@
 const express=require('express')
 const app=express()
 const dotenv=require('dotenv')
+
 const userRoutes=require('./routes/user.routes');
+const captainRoutes=require('./routes/captain.routes')
 const cookieParser = require('cookie-parser');
 app.use(cookieParser()); // Add this middleware
 dotenv.config()
@@ -16,6 +18,8 @@ connectToDb()
 app.get('/',(req,res)=>{
     res.send("Hello world")
 })
+
 app.use('/users',userRoutes)
+app.use('/captain',captainRoutes)
 module.exports=app
 // 8OigZzIaR0ube3Qq
